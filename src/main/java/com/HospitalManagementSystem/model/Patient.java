@@ -120,7 +120,7 @@ public class Patient implements Serializable {
 	}
 
 	public Patient(String firstName, String lastName, String password,Date dob, String email,
-			@NotNull @Size(min = 0, max = 10) String contactNumber, String state, String insurancePlan) {
+			 String contactNumber, String state, String insurancePlan) {
 		super();
 		this.patientId = patientId;
 		this.firstName = firstName;

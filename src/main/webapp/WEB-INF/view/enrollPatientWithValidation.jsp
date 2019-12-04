@@ -65,6 +65,17 @@ font-weight: bold;
 width: 100%;
 }
 </style>
+<script>
+function checkDate() {
+	 var selectedDate = document.getElementById("dob").value;
+	  var now = new Date();
+	  var date= selectedDate.split("-");
+	  if ((date[0] == now.getFullYear() && date[1] == now.getMonth()+1 && date[2] > now.getDate())|| (date[0] == now.getFullYear() && date[1] > now.getMonth()+1) || date[0] > now.getFullYear()) {
+	   alert(" DOB must be in the past");
+	  }
+	}
+
+</script>
 </head>
 <body>
 <div class="header">
@@ -86,8 +97,10 @@ pattern="^^[a-zA-Z\\s]*$" title="Name should only contain Alphabets"></form:inpu
 <br>
 
 <label>Enter DOB</label><br> 
-<form:input type="date" path="dob" title="select correct date" required="true"></form:input>
+<form:input type="date" path="dob" id="dob" title="select correct date" required="true"  onchange="checkDate()"></form:input>
 <br>
+<%-- <form:input type="date" path="dateOfDiagnosis" id="diagnosisDate" required="true" onchange="checkDate()"
+placeholder="Date of Diagnosis" /> --%>
 <label>Enter Email ID</label><br> 
 <form:input type="email"  placeholder="Enter email" path="email" required="true" title="enter email id of correct format"></form:input>
 <br>

@@ -15,6 +15,7 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.HospitalManagementSystem.dao.HospitalManagementDao;
 import com.HospitalManagementSystem.model.Patient;
@@ -22,40 +23,33 @@ import com.HospitalManagementSystem.service.HospitalManagementService;
 import com.HospitalManagementSystem.service.HospitalManagementServiceImpl;
 
 public class TestenrollPatient {
-	@InjectMocks
-	HospitalManagementServiceImpl hospitalManagementServiceImpl = new HospitalManagementServiceImpl();
+	/*
+*/
+	@Autowired
+	HospitalManagementServiceImpl hospitalManagementServiceImpl;
 
-	@Mock
+	@Autowired
 	HospitalManagementDao hospitalManagementDao;
 
-	@Before
-	public void init() {
-		MockitoAnnotations.initMocks(this);
-	}
+	
 
 	@Test
 	public void test() throws ParseException {
-		
-		  String sDate1="31/12/1998";
-		  Date dob=(java.sql.Date) new SimpleDateFormat("dd/MM/yyyy").parse(sDate1);
-		 
-		
-		Patient patient = new Patient();
-		/*patient.setDob("12-02-1998");*/
-		patient.setFirstName("ishwarya");
-		patient.setLastName("i");
-		patient.setPassword("ntce1997");
-		patient.setDob((java.sql.Date) dob); 
-		patient.setContactNumber("+918234567786");
-		patient.setState("Tamilnadu");
-		patient.setInsurancePlan("Star Health Insurance");
+
+		String sDate1 = "2015-03-31";
+		Date dob = Date.valueOf(sDate1);
+		Patient patient = new Patient("ishwarya", "i", "ntce1997", Date.valueOf("2015-03-31"), "neve@gmail.com",
+				"+918234567786", "Tamilnadu", "Star Health Insurance");
+		patient.setPatientId(1006);
 		boolean r;
-		boolean f=false;
-		boolean s=true;
+		boolean f = false;
+		boolean s = true;
 
-		hospitalManagementServiceImpl.enrollPatient(patient);
-
-		if (hospitalManagementDao.save(patient) != null) {
+		Patient p= hospitalManagementServiceImpl.enrollPatient(patient); 
+		
+		System.out.println(hospitalManagementDao.save(patient));
+	/*	if (hospitalManagementDao.save(patient)!= null) {*/
+		if(p!=null){
 			r = true;
 		}
 
@@ -63,7 +57,7 @@ public class TestenrollPatient {
 			r = false;
 		}
 
-		/*assertEquals(f, r);*/
+		/* assertEquals(f, r); */
 		assertEquals(s, r);
 	}
 
