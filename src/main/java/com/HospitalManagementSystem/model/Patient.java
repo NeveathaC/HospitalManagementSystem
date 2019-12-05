@@ -16,9 +16,12 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
+import org.springframework.context.annotation.ComponentScan;
+
 
 @Entity
 @Table(name = "Patient")
+@ComponentScan
 public class Patient implements Serializable {
 	public Patient() {
 		super();

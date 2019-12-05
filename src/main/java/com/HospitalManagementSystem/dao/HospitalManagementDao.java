@@ -7,4 +7,6 @@ import com.HospitalManagementSystem.model.Patient;
 @Repository
 public interface HospitalManagementDao extends CrudRepository<Patient, Integer> {
 	public Patient findByFirstNameAndLastName(String firstName, String lastName);
+/*
+	public boolean existsById(String string);*/
 }

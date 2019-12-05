@@ -25,7 +25,7 @@ import com.HospitalManagementSystem.dao.HospitalManagementDao;
 import com.HospitalManagementSystem.model.Patient;
 import com.HospitalManagementSystem.service.HospitalManagementServiceImpl;
 @RunWith(SpringJUnit4ClassRunner.class)
-public class HospitalManagementSystemApplicationTests {
+public class Test1 {
 /*@Mock*/
 	@InjectMocks
 	HospitalManagementServiceImpl hospitalManagementServiceImpl = new HospitalManagementServiceImpl();

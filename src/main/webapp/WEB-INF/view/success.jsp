@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>Hospital Management System</h2><br>
-<h3><a href="toEnroll">Enroll patient</a></h3>
-<h3><a href="toCheck">Enroll patient</a></h3>
+sucess
 </body>
 </html>

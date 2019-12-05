@@ -22,7 +22,8 @@ public class HospitalManagementServiceImpl implements HospitalManagementService 
 	@Override
 	public Patient enrollPatient(Patient patient) {
 		logger.info("enroll patient in service");
-		return this.hospitalManagementDao.save(patient);
+		 this.hospitalManagementDao.save(patient);
+		return patient;
 	}
 
 	@Override
